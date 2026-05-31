@@ -6,6 +6,18 @@
 
 //using namespace std;
 
+/*
+void happyBirthday(string name){
+  cout << "Happy birthday" << name;
+  cout << "Happy birthday" << name;
+  cout << "Happy birthday" << name;
+}
+
+void bakePizza();
+void bakePizza(string toppings1); // Function Signature
+double square(double length);
+*/
+
 //typedef std::string str_t; (creates alias)
 
 //using str_t = std::string; (create alias)
@@ -135,5 +147,96 @@ int main(){
   //Ternary operator
   grade > 80 ? cout << "Well Done" : cout << "Better luck next time";
 
+
+
+  cout << "Enter your name";
+  string name;
+  getline(cin,name);
+  cout << 'Length' << name.length(); //Gives length
+  cout << 'isEmpty' << name.empty(); //Checks if empty
+  name.append("@gmail.com"); //Add characters at end of string
+  cout << name.at(1); //Will return the character in given index
+  name.insert(1,"#"); //Inserting characters (Position, Value)
+  name.find('n'); //Look for first occurrence of given str, returns index
+  name.erase(0,3);// Will remove the values of index 0,1,2 from string
+  name.clear(); //Clears the full name
+  cout << 'clearMethod' << name;
+
+
+  // While LOOP
+  string name;
+  while (name.empty()){
+    cout << "Enter name: ";
+    getline(cin,name);
+  }
+  cout << "Welcome " << name;
+  return 0;
+
+
+  // Do While LOOP
+  int number;
+  do {
+    cout << "Enter a positive number: ";
+    cin >> number;
+  } while (number < 0);
+  cout << "The number is : " << number;
+  return 0;
+
+
+  // For LOOP
+  for (int i = 0; i<=5; i++){
+    cout << i << endl;
+  }
+  cout << "Happy New Year!";
+  return 0;
+
+  // BREAK and CONTINUE works the same!!
+
+
+  string name = "Name";
+  happyBirthday(name);
+  double length = 2.9;
+  double ans = square(length);
+  cout << "Answer: " << ans;
+  return 0;
+
+
+
+  string top = "Pepperoni";
+  bakePizza("Pepperoni");
+
+
+  //Array
+  string cars[] = {"Audi","Honda"}; //Should have same datatype
+  string cards[3]; //Set array size and declaration
+  cards[0] = "KING";
+  cards[1] = "QUEEN";
+  cards[2] = "ACE";
+  cars[0] = "Camero";
+  cout << cars[0] << endl; // Access by index
+
+  //sizeof()
+  cout << sizeof(cards)/sizeof(string) << " elements \n";
+  cout << sizeof(cards[0]);
+
+  //For Each Loop
+  string cars[] = {"Audi", "Honda"};
+  for (string car : cars){
+    cout << car << endl;
+  }
   */
+
 }
+
+/*
+double square(double length){
+  return length*length;
+}
+
+void bakePizza(){
+  cout << "Here is your pizza";
+}
+void bakePizza(string toppings1){
+  cout << "Here is your pizza with " << toppings1 << " is ready!";
+}
+*/
