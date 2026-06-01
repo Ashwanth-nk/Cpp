@@ -3,10 +3,62 @@
 #include <cstdlib>
 #include <ctime>
 #include <vector>
-
-//using namespace std;
+#include <string>
 
 /*
+using namespace std;
+
+struct student {
+  string name;
+  double gpa;
+  bool enrolled;
+};
+
+enum Day {a=0, b=1, c=2, d=3};
+
+class Human {
+  private:
+    int marks;
+  public: //Attribute
+    string name;
+    string occupation;
+    int age;
+    void eat(){ //Method
+      cout << "Eating";
+    }
+};
+
+class Game {
+  public:
+    string name;
+    int year;
+  Game(string x, int year){ //Constructor
+    name = x;
+    this->year = year;
+  }
+  //Can have multiple constructors
+  //Getters and Setters (makes readable and writable of private key attributes in a class respectively)
+};
+
+//Inheritence
+class Dog : public Game {
+  public:
+    //Could add anything
+};
+
+//Function template
+template <typename T>
+T max (T x, T y){
+  return (x>y) ? x : y;
+}
+template <typename T, typename U>
+T max1(T x, U y)
+{
+  return (x > y) ? x : y;
+}
+
+int doubleDigit(int digit);
+
 void happyBirthday(string name){
   cout << "Happy birthday" << name;
   cout << "Happy birthday" << name;
@@ -16,15 +68,15 @@ void happyBirthday(string name){
 void bakePizza();
 void bakePizza(string toppings1); // Function Signature
 double square(double length);
+
+typedef std::string str_t; (creates alias)
+
+using str_t = std::string; (create alias)
+
+namespace first {
+  int x = 1;
+}
 */
-
-//typedef std::string str_t; (creates alias)
-
-//using str_t = std::string; (create alias)
-
-//namespace first {
-//  int x = 1;
-//}
 
 int main(){
   /*
@@ -64,11 +116,13 @@ int main(){
   cout << "Celcius : " << celcius;
   return 0;
 
+
   double res1 = floor(1.4);
   cout << res1 << endl;
   double res2 = pow(2,4);
   cout << res2;
   return 0;
+
 
   float a = 9.99f;
   long b = 10000L;
@@ -79,6 +133,7 @@ int main(){
   int d {1.2}; (will result in error)
   cout << c;
   return 0;
+
 
   //Narrowing
   int number = 1'00'000;
@@ -93,6 +148,7 @@ int main(){
   cout << number;
   return 0;
 
+
   str_t name = "BRO";
   using namespace first;
   cout << x;
@@ -102,6 +158,7 @@ int main(){
   char x = (char) 100; //Explicit type conversion
   cout << x;
   return 0;
+
 
   cout << "Name: ";
   string name;
@@ -190,6 +247,7 @@ int main(){
   cout << "Happy New Year!";
   return 0;
 
+
   // BREAK and CONTINUE works the same!!
 
 
@@ -199,7 +257,6 @@ int main(){
   double ans = square(length);
   cout << "Answer: " << ans;
   return 0;
-
 
 
   string top = "Pepperoni";
@@ -215,17 +272,110 @@ int main(){
   cars[0] = "Camero";
   cout << cars[0] << endl; // Access by index
 
+
   //sizeof()
   cout << sizeof(cards)/sizeof(string) << " elements \n";
   cout << sizeof(cards[0]);
+
 
   //For Each Loop
   string cars[] = {"Audi", "Honda"};
   for (string car : cars){
     cout << car << endl;
   }
-  */
 
+
+  int array[] = {10,1,9,2,8,3,7,4,6,5};
+  int size = sizeof(array)/sizeof(array[0]);
+  for (int i = 0; i < size; i++){
+    int temp = array[i];
+    for (int j = 0; j < size; j++){
+      if (i != j && array[j] > array[i]){
+        temp = array[j];
+        array[j] = array[i];
+        array[i] = temp;
+      }
+    }
+  }
+  for (int x: array) cout << x << " ";
+  return 0;
+
+
+  //Fill function
+  string foods[100];
+  fill(foods, foods + 10, "Hi");
+
+
+  // 2D Array
+  string alphabets[][2] = {{"a","b"},
+                           {"c","d"},
+                           {"e","f"}};
+
+  //Memory Address
+  int num = 2;
+  cout << &num;
+
+  //Pass by values , Pass by reference (Functions)
+  //Const Parameters (Functions)
+
+
+  //Credit Card Number Validation
+  string address = "6011000990139424";
+  int size = address.size();
+  int sum1 = 0;
+  int sum2 = 0;
+  for (int i=0; i < size; i+=2){
+    sum1 += doubleDigit(address[i] - '0');
+  }
+  for (int i=1; i < size; i+=2){
+    sum2 += address[i] - '0';
+  }
+  if ((sum1+ sum2)%10 == 0){
+    cout << "True";
+  } else {
+    cout << "False";
+  }
+  return 0;
+
+
+  //Pointer
+  int *pointer = nullptr;
+  cout << pointer << endl;
+  string name = "Bro";
+  string *pName = &name;
+  cout << pName << " " << *pName;
+
+  //Dynamic memory
+  int *pNum = NULL;
+  pNum = new int;
+  *pNum = 2;
+  delete pNum;
+  return 0;
+
+  //Stack Overflow (INFINITE LOOPS)
+
+
+  //Creation of struct
+  student student1;
+  student1.name = 'Bob';
+  student1.gpa = 3.2;
+  student1.enrolled = true;
+
+  //Calling enum
+  Day today = c;
+  cout << today;
+
+
+  //Creation of class
+  Human human1;
+  human1.name="Bob";
+  human1.age=9;
+  human1.occupation="barber";
+  human1.eat();
+
+  Game g("Fornite", 1932);
+  cout << g.name << " " << g.year;
+  */
 }
 
 /*
@@ -238,5 +388,14 @@ void bakePizza(){
 }
 void bakePizza(string toppings1){
   cout << "Here is your pizza with " << toppings1 << " is ready!";
+}
+
+int doubleDigit(int digit){
+  int doubledDigit = digit * 2;
+  if (to_string(doubledDigit).length() == 2){
+    return (doubledDigit % 10 + doubledDigit / 10);
+  } else {
+    return doubledDigit;
+  }
 }
 */
